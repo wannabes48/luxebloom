@@ -6,12 +6,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
-    const { email, customerName, orderId, total, type } = await request.json();
+    const { email, customerName, orderId, total, type, message } = await request.json();
 
     // Check if this is an order confirmation or an inquiry
     if (type === 'order') {
       const { data, error } = await resend.emails.send({
-        // For testing, Resend requires using their onboarding address if the domain isn't verified
         from: 'Luxe Bloom <onboarding@resend.dev>', 
         to: [email],
         subject: `Order Confirmation #LB-${orderId.slice(-6).toUpperCase()} - Luxe Bloom`,
@@ -32,7 +31,7 @@ export async function POST(request) {
         from: 'Luxe Bloom <onboarding@resend.dev>',
         to: ['support@luxebloom.com'], // This goes to YOUR inbox
         subject: `New Inquiry from ${customerName}`,
-        text: `You have a new message from ${customerName} (${email}). Please check your admin dashboard.`,
+        text: `You have a new message from ${customerName || 'Chat User'} (${email}):\n\n${message}`,
       });
 
       if (error) return NextResponse.json({ error }, { status: 400 });
