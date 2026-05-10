@@ -1,0 +1,184 @@
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border);
+  transform: translateY(-4px);
+}
+
+/* Image */
+.imageWrap {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+.imageFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+  font-size: 3.5rem;
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+}
+
+.wishBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.card:hover .wishBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wishBtn:hover {
+  color: #e25555;
+  transform: scale(1.1) !important;
+}
+
+.wishlisted {
+  color: #e25555 !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Hover overlay */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.35));
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-base);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quickAdd {
+  width: 100%;
+  backdrop-filter: blur(4px);
+}
+
+/* Info */
+.info {
+  padding: 1rem 1.125rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--emerald);
+  margin-bottom: 0.25rem;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.name a {
+  transition: color var(--transition-fast);
+}
+
+.name a:hover {
+  color: var(--emerald);
+}
+
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--emerald);
+}
+
+.originalPrice {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Mobile add button */
+.mobileAdd {
+  display: none;
+  margin: 0 1rem 1rem;
+  width: calc(100% - 2rem);
+}
+
+@media (max-width: 768px) {
+  .wishBtn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .overlay {
+    display: none;
+  }
+  .mobileAdd {
+    display: flex;
+  }
+}

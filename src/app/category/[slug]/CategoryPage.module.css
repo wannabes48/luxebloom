@@ -1,0 +1,93 @@
+.page {
+  padding-bottom: 8rem;
+}
+
+.header {
+  background-color: var(--bg-soft);
+  padding: 5rem 0;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+.current {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.desc {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  color: var(--text-body);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 5rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.loading {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--emerald);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .title { font-size: 2.75rem; }
+}
+
+@media (max-width: 576px) {
+  .grid { grid-template-columns: 1fr; }
+  .header { padding: 4rem 0; }
+  .title { font-size: 2.25rem; }
+}

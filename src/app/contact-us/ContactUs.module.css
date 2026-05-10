@@ -1,0 +1,77 @@
+.container {
+  padding-bottom: 6rem;
+}
+
+.header {
+  text-align: center;
+  padding: 6rem 0 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 4rem;
+}
+
+.infoCard {
+  background: var(--bg-soft);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.infoCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.infoCard p {
+  margin-bottom: 0.25rem;
+  color: var(--text-body);
+}
+
+.infoCard a:hover {
+  color: var(--emerald);
+  text-decoration: underline;
+}
+
+.formCol {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  .formCol {
+    padding: 2rem;
+  }
+}

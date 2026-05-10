@@ -1,0 +1,88 @@
+.topbar {
+  background: var(--emerald-dark);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8125rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition-fast);
+  font-weight: 400;
+}
+
+.link:hover {
+  color: var(--gold-light);
+}
+
+.divider {
+  opacity: 0.3;
+  font-size: 0.75rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.promo {
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  transition: all var(--transition-fast);
+}
+
+.socialIcon:hover {
+  background: var(--gold);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    gap: 0.375rem;
+    text-align: center;
+  }
+  .promo {
+    font-size: 0.75rem;
+  }
+  .left {
+    font-size: 0.75rem;
+  }
+}

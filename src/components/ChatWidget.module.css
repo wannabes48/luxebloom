@@ -1,0 +1,136 @@
+.widget {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(10, 92, 54, 0.35);
+  transition: all var(--transition-base);
+}
+
+.fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(10, 92, 54, 0.45);
+}
+
+/* Bubble */
+.bubble {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 340px;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: fadeInUp 0.35s var(--ease-out);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bubbleHeader {
+  background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.bubbleHeader button {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-fast);
+}
+
+.bubbleHeader button:hover {
+  color: var(--white);
+}
+
+.bubbleBody {
+  padding: 1.25rem;
+}
+
+.greeting {
+  font-size: 0.9375rem;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.info {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.info strong {
+  color: var(--emerald);
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 0.625rem 0.875rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: var(--emerald);
+}
+
+.sendBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--emerald);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+
+.sendBtn:hover {
+  background: var(--emerald-light);
+}
+
+@media (max-width: 480px) {
+  .widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .bubble {
+    width: calc(100vw - 2rem);
+    right: 0;
+  }
+}

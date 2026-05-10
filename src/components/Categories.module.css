@@ -1,0 +1,109 @@
+.categories {
+  background: var(--bg-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 92, 54, 0.4), rgba(27, 42, 74, 0.8));
+  backdrop-filter: blur(2px);
+  transition: all var(--transition-base);
+  z-index: 1;
+}
+
+.card:hover .overlay {
+  background: linear-gradient(to bottom, rgba(10, 92, 54, 0.2), rgba(27, 42, 74, 0.6));
+  backdrop-filter: blur(1px);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.iconWrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: all var(--transition-base);
+  border: 2px solid var(--border-light);
+}
+
+.card:hover .iconWrap {
+  background: linear-gradient(135deg, var(--gold-light), var(--bg-warm));
+  border-color: var(--gold);
+  transform: scale(1.05);
+}
+
+.emoji {
+  font-size: 2rem;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .card {
+    padding: 1.25rem 0.75rem;
+  }
+  .iconWrap {
+    width: 64px;
+    height: 64px;
+  }
+  .emoji {
+    font-size: 1.5rem;
+  }
+}

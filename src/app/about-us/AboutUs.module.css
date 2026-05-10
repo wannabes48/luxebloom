@@ -1,0 +1,88 @@
+.container {
+  padding-bottom: 5rem;
+}
+
+.header {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 5rem 0;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: var(--white);
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.textSide h2 {
+  margin-bottom: 1.5rem;
+}
+
+.textSide p {
+  font-size: 1.125rem;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+}
+
+.imagePlaceholder {
+  aspect-ratio: 4/5;
+  background-color: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--gold);
+}
+
+.valuesSection {
+  margin-top: 6rem;
+  padding: 6rem 0;
+  background-color: var(--bg-soft);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.valueCard {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.valueCard h3 {
+  margin-bottom: 1rem;
+  color: var(--emerald);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}
