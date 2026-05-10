@@ -379,7 +379,7 @@ export default function MyAccountPage() {
                       <button className={styles.editLink}>Edit</button>
                     </div>
                     <address className={styles.addressText}>
-                      Dorah Siro<br />
+                      John Doe<br />
                       123 Bloom Avenue<br />
                       Suite 100<br />
                       New York, NY 10001
@@ -391,7 +391,7 @@ export default function MyAccountPage() {
                       <button className={styles.editLink}>Edit</button>
                     </div>
                     <address className={styles.addressText}>
-                      Dorah Siro<br />
+                      John Doe<br />
                       123 Bloom Avenue<br />
                       Suite 100<br />
                       New York, NY 10001

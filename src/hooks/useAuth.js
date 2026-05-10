@@ -9,21 +9,38 @@ import { supabase } from "@/lib/supabase";
  */
 export function useAuth() {
   const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 1. Check for active session on mount
+    const fetchProfile = async (userId) => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', userId)
+        .single();
+      
+      if (!error) setProfile(data);
+    };
+
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        setUser(session.user);
+        await fetchProfile(session.user.id);
+      }
       setLoading(false);
     };
 
     checkSession();
 
-    // 2. Listen for auth state changes (login, logout, etc.)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        await fetchProfile(session.user.id);
+      } else {
+        setProfile(null);
+      }
       setLoading(false);
     });
 
@@ -74,6 +91,8 @@ export function useAuth() {
 
   return {
     user,
+    profile,
+    isAdmin: profile?.role === 'admin',
     loading,
     signIn,
     signUp,
