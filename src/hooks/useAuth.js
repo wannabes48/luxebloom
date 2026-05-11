@@ -68,7 +68,7 @@ export function useAuth() {
   const signIn = async (email, password) => {
     setLoading(true);
     const { data, error } = await supabase.auth.signInWithPassword({
-      email,
+      email: email.toLowerCase().trim(),
       password,
     });
     setLoading(false);
@@ -81,7 +81,7 @@ export function useAuth() {
   const signUp = async (email, password, metadata) => {
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
-      email,
+      email: email.toLowerCase().trim(),
       password,
       options: {
         data: metadata, // This metadata will be caught by our DB trigger to create a profile

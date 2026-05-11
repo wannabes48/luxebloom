@@ -1,4 +1,5 @@
 // Home page for Luxe Bloom
+export const revalidate = 3600; // Revalidate every hour
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import ProductGrid from "@/components/ProductGrid";
