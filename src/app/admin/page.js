@@ -18,29 +18,43 @@ export default function AdminDashboard() {
       try {
         setLoading(true);
         
-        // 1. Fetch Real Orders & Sales
-        const { data: orders, error: orderError } = await supabase
+        // 1. Fetch Total Sales (using sum)
+        const { data: salesData, error: salesError } = await supabase
           .from('orders')
-          .select('total, created_at, order_status')
-          .order('created_at', { ascending: false });
+          .select('total')
+          .not('order_status', 'eq', 'cancelled'); // Don't count cancelled orders
+
+        if (salesError) throw salesError;
+        const totalSales = salesData.reduce((sum, o) => sum + (Number(o.total) || 0), 0);
+
+        // 2. Fetch Order Count (using count)
+        const { count: orderCount, error: orderError } = await supabase
+          .from('orders')
+          .select('*', { count: 'exact', head: true });
 
         if (orderError) throw orderError;
 
-        // 2. Fetch Real Customer Count
+        // 3. Fetch Recent Orders (limited)
+        const { data: recentOrders, error: recentError } = await supabase
+          .from('orders')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(8);
+
+        if (recentError) throw recentError;
+
+        // 4. Fetch Customer Count
         const { count: customerCount, error: customerError } = await supabase
           .from('profiles')
           .select('*', { count: 'exact', head: true });
 
         if (customerError) throw customerError;
 
-        // Calculate actual totals from DB data
-        const totalSales = orders.reduce((sum, order) => sum + (Number(order.total) || 0), 0);
-        
         setStats({
           totalSales,
-          orderCount: orders.length,
+          orderCount: orderCount || 0,
           customerCount: customerCount || 0,
-          recentOrders: orders.slice(0, 8), // Show more recent orders
+          recentOrders: recentOrders || [],
         });
       } catch (err) {
         console.error("Dashboard error:", err.message);

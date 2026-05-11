@@ -24,24 +24,37 @@ export function useAuth() {
     };
 
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
-        setUser(session.user);
-        await fetchProfile(session.user.id);
+      try {
+        const { data: { user: authUser } } = await supabase.auth.getUser();
+        if (authUser) {
+          setUser(authUser);
+          await fetchProfile(authUser.id);
+        }
+      } catch (e) {
+        console.error("Auth check failed:", e);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     checkSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        await fetchProfile(session.user.id);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const newUser = session?.user ?? null;
+      setUser(newUser);
+      
+      if (newUser) {
+        // Only fetch profile if user changed or profile is missing
+        if (!profile || profile.id !== newUser.id) {
+          await fetchProfile(newUser.id);
+        }
       } else {
         setProfile(null);
       }
-      setLoading(false);
+      
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+        setLoading(false);
+      }
     });
 
     return () => {
