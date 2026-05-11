@@ -7,15 +7,14 @@ import { categories } from "@/data/products";
 import styles from "./Navbar.module.css";
 
 const mainLinks = [
-  { label: "Home", href: "/" },
-  { label: "All Products", href: "/shop" },
-  { label: "About Luxe Bloom", href: "/about-us" },
+  { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact-us" },
 ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedCats, setExpandedCats] = useState({});
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const pathname = usePathname();
 
   // Close menu on route change
@@ -60,7 +59,7 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Nav Links */}
-          <ul className={styles.desktopLinks}>
+          <ul className={`${styles.desktopLinks} font-montserrat`}>
             {mainLinks.map((link) => (
               <li key={link.label}>
                 <Link href={link.href} className={styles.link}>
@@ -68,10 +67,39 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            {/* Dynamic Categories */}
+            {categories.map((cat) => (
+              <li 
+                key={cat.id} 
+                className={styles.desktopCat}
+                onMouseEnter={() => setActiveDropdown(cat.id)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link href={`/category/${cat.slug}`} className={styles.link}>
+                  {cat.name}
+                  {cat.subcategories && (
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '4px' }}><path d="m6 9 6 6 6-6"/></svg>
+                  )}
+                </Link>
+                {activeDropdown === cat.id && cat.subcategories && (
+                  <div className={styles.dropdown}>
+                    <ul className={styles.dropdownLinks}>
+                      {cat.subcategories.map((sub) => (
+                        <li key={sub.slug}>
+                          <Link href={`/category/${cat.slug}/${sub.slug}`} className={styles.dropdownLink}>
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
           </ul>
 
           {/* Delivery Notice */}
-          <div className={styles.delivery}>
+          <div className={`${styles.delivery} font-montserrat`}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v2M23 13v2a2 2 0 0 1-2 2h-2.14M7 18h8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M15 18H9"/><path d="M10 6h4"/><path d="m21 13-2-3h-4v7h4l2-4Z"/></svg>
             <span>Hand-Delivered Excellence</span>
           </div>
@@ -80,7 +108,7 @@ export default function Navbar() {
 
       {/* Mobile Sidebar */}
       <aside className={`${styles.sidebar} ${isMenuOpen ? styles.sidebarOpen : ""}`}>
-        <div className={styles.sidebarHeader}>
+        <div className={`${styles.sidebarHeader} font-montserrat`}>
           <div className={styles.sidebarBrand}>Luxe Bloom</div>
           <button className={styles.closeBtn} onClick={() => setIsMenuOpen(false)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -89,7 +117,7 @@ export default function Navbar() {
 
         <div className={styles.sidebarContent}>
           {/* Main Links */}
-          <section className={styles.sidebarSection}>
+          <section className={`${styles.sidebarSection} font-montserrat`}>
             <div className={styles.sectionLabel}>Navigation</div>
             <ul className={styles.sidebarLinks}>
               {mainLinks.map((link) => (
@@ -108,7 +136,7 @@ export default function Navbar() {
           </section>
 
           {/* Categories */}
-          <section className={styles.sidebarSection}>
+          <section className={`${styles.sidebarSection} font-montserrat`}>
             <div className={styles.sectionLabel}>Shop by Collection</div>
             <ul className={styles.sidebarLinks}>
               {categories.map((cat) => (
@@ -124,8 +152,19 @@ export default function Navbar() {
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                   </div>
-                  {expandedCats[cat.slug] && (
-                    <ul className={styles.subLinks}>
+                  {expandedCats[cat.slug] && cat.subcategories && (
+                    <ul className={`${styles.subLinks} font-montserrat`}>
+                      {cat.subcategories.map((sub) => (
+                        <li key={sub.slug}>
+                          <Link href={`/category/${cat.slug}/${sub.slug}`} className={styles.subLink}>
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {expandedCats[cat.slug] && !cat.subcategories && (
+                    <ul className={`${styles.subLinks} font-montserrat`}>
                       <li><Link href={`/category/${cat.slug}?view=bestsellers`} className={styles.subLink}>Bestsellers</Link></li>
                       <li><Link href={`/category/${cat.slug}?view=new`} className={styles.subLink}>New Arrivals</Link></li>
                       <li><Link href={`/category/${cat.slug}?view=sale`} className={styles.subLink}>Current Offers</Link></li>

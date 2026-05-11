@@ -24,7 +24,7 @@ export default function Categories() {
                   <span className={styles.emoji}>{cat.icon}</span>
                 </div>
                 <h3 className={styles.name}>{cat.name}</h3>
-                <p className={styles.desc}>{cat.description}</p>
+                <p className={`${styles.desc} font-montserrat`}>{cat.description}</p>
               </div>
             </Link>
           ))}

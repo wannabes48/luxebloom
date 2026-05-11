@@ -75,7 +75,7 @@ export default function ProductCard({ product }) {
 
       {/* Info */}
       <div className={styles.info}>
-        <span className={styles.category}>{product.categoryLabel}</span>
+        <span className={`${styles.category} font-montserrat`}>{product.categoryLabel}</span>
         <h3 className={styles.name}>
           <Link href={`/product/${product.slug}`}>{product.name}</Link>
         </h3>

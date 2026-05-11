@@ -174,7 +174,68 @@ export const products = [
 
 export const categories = [
   {
-    id: "cat-1",
+    id: "birthday",
+    name: "Birthday",
+    slug: "birthday",
+    icon: "🎂",
+    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430101/chocolatesflowers_vlzqwh.webp",
+    description: "Celebrate their special day",
+    subcategories: [
+      { name: "Birthday Flowers", slug: "birthday-flowers" },
+      { name: "Cakes", slug: "cakes" },
+      { name: "Chocolates", slug: "chocolates" },
+      { name: "Tropical Flowers", slug: "tropical-flowers" },
+    ]
+  },
+  {
+    id: "love-romance",
+    name: "Love & Romance",
+    slug: "love-romance",
+    icon: "❤️",
+    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430099/anniversary_yo5wod.webp",
+    description: "Express your deepest feelings",
+    subcategories: [
+      { name: "For Her", slug: "for-her" },
+      { name: "For Him", slug: "for-him" },
+    ]
+  },
+  {
+    id: "newborn",
+    name: "Newborn",
+    slug: "newborn",
+    icon: "👶",
+    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430098/getwell_iupha7.webp",
+    description: "Welcome the little one",
+    subcategories: [
+      { name: "It's a Boy", slug: "its-a-boy" },
+      { name: "It's a Girl", slug: "its-a-girl" },
+    ]
+  },
+  {
+    id: "occasions",
+    name: "Occasions",
+    slug: "occasions",
+    icon: "🎉",
+    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430098/graduationflowers_fvbiez.avif",
+    description: "Celebrate every moment",
+    subcategories: [
+      { name: "Anniversary", slug: "anniversary" },
+      { name: "Graduation", slug: "graduation" },
+      { name: "Get Well", slug: "get-well" },
+      { name: "Sympathy", slug: "sympathy" },
+      { name: "Thank You", slug: "thank-you" },
+      { name: "Congratulations", slug: "congratulations" },
+      { name: "Retirement", slug: "retirement" },
+      { name: "Just Because", slug: "just-because" },
+      { name: "Housewarming", slug: "housewarming" },
+      { name: "Wedding", slug: "wedding" },
+      { name: "Prom & Formal", slug: "prom-formal" },
+      { name: "I'm Sorry", slug: "sorry" },
+      { name: "Thinking of You", slug: "thinking-of-you" },
+    ]
+  },
+  {
+    id: "money-bouquets",
     name: "Money Bouquets",
     slug: "money-bouquets",
     icon: "💵",
@@ -182,44 +243,12 @@ export const categories = [
     description: "Artfully arranged currency bouquets",
   },
   {
-    id: "cat-2",
+    id: "fresh-florals",
     name: "Fresh Florals",
     slug: "fresh-florals",
     icon: "🌹",
     image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430100/freshflorals_lhf7kc.webp",
     description: "Premium fresh flower arrangements",
-  },
-  {
-    id: "cat-3",
-    name: "Graduation",
-    slug: "graduation",
-    icon: "🎓",
-    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430098/graduationflowers_fvbiez.avif",
-    description: "Celebrate their achievement",
-  },
-  {
-    id: "cat-4",
-    name: "Anniversaries",
-    slug: "anniversaries",
-    icon: "💕",
-    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430099/anniversary_yo5wod.webp",
-    description: "Romantic arrangements for your love",
-  },
-  {
-    id: "cat-5",
-    name: "Get Well",
-    slug: "get-well",
-    icon: "🌻",
-    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430098/getwell_iupha7.webp",
-    description: "Brighten their day",
-  },
-  {
-    id: "cat-6",
-    name: "Custom Add-Ons",
-    slug: "custom-add-ons",
-    icon: "🎁",
-    image: "https://res.cloudinary.com/dgp7jehvx/image/upload/v1778430101/chocolatesflowers_vlzqwh.webp",
-    description: "Chocolates, cards, and more",
   },
 ];
 

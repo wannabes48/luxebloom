@@ -1,6 +1,6 @@
 .card {
   background: var(--white);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   overflow: hidden;
   border: 1px solid var(--border-light);
   transition: all var(--transition-base);
@@ -20,6 +20,7 @@
   aspect-ratio: 1;
   overflow: hidden;
   background: var(--bg-soft);
+  border-radius: 0;
 }
 
 .image {
@@ -129,7 +130,7 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: 1.0625rem;
+  font-size: 1rem; /* 16px */
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 0.5rem;

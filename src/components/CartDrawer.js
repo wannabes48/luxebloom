@@ -12,7 +12,7 @@ export default function CartDrawer() {
   return (
     <>
       <div className={styles.overlay} onClick={closeCart} />
-      <div className={styles.drawer} role="dialog" aria-label="Shopping cart">
+      <div className={`${styles.drawer} font-montserrat`} role="dialog" aria-label="Shopping cart">
         {/* Header */}
         <div className={styles.header}>
           <h2 className={styles.title}>

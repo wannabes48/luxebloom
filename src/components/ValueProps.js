@@ -33,7 +33,7 @@ export default function ValueProps() {
             <div key={i} className={styles.card}>
               <div className={styles.icon}>{prop.icon}</div>
               <h3 className={styles.title}>{prop.title}</h3>
-              <p className={styles.desc}>{prop.desc}</p>
+              <p className={`${styles.desc} font-montserrat`}>{prop.desc}</p>
             </div>
           ))}
         </div>

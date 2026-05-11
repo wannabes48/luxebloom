@@ -2,7 +2,7 @@ import styles from "./TopBar.module.css";
 
 export default function TopBar() {
   return (
-    <div className={styles.topbar}>
+    <div className={`${styles.topbar} font-montserrat`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.left}>
           <a href="tel:+15551234567" className={styles.link}>

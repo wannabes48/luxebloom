@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer} id="footer">
+    <footer className={`${styles.footer} font-montserrat`} id="footer">
       {/* Newsletter */}
       <div className={styles.newsletter}>
         <div className="container">

@@ -4,20 +4,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import ProductCard from "@/components/ProductCard";
-import { categories as localCategories, products as localProducts } from "@/data/products";
-import styles from "./CategoryPage.module.css";
+import { categories as localCategories } from "@/data/products";
+import styles from "../CategoryPage.module.css";
 import Link from "next/link";
 
-export default function CategoryPage() {
-  const { slug } = useParams();
+export default function SubcategoryPage() {
+  const { slug, subslug } = useParams();
   const [category, setCategory] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchCategoryData() {
+    async function fetchSubcategoryData() {
       try {
-        // 1. Fetch category details
+        // 1. Fetch parent category details
         const { data: catList, error: catError } = await supabase
           .from("categories")
           .select("*")
@@ -27,7 +27,7 @@ export default function CategoryPage() {
         if (catError) throw catError;
         const catData = catList && catList.length > 0 ? catList[0] : null;
         setCategory(catData);
-        
+
         if (catData) {
           setCategory(catData);
           const { data: prodData, error: prodError } = await supabase
@@ -44,22 +44,20 @@ export default function CategoryPage() {
           const localCat = localCategories.find(c => c.slug === slug);
           if (localCat) {
             setCategory(localCat);
-            // In a real app, you'd filter local products by category
-            // For now, we'll show all if it's a new category
-            setProducts([]); 
+            setProducts([]);
           } else {
             setCategory(null);
           }
         }
       } catch (err) {
-        console.error("Error fetching category data:", err.message);
+        console.error("Error fetching subcategory data:", err.message);
       } finally {
         setLoading(false);
       }
     }
 
-    if (slug) fetchCategoryData();
-  }, [slug]);
+    if (slug) fetchSubcategoryData();
+  }, [slug, subslug]);
 
   if (loading) {
     return (
@@ -87,17 +85,23 @@ export default function CategoryPage() {
           <nav className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.separator}>/</span>
-            <span className={styles.current}>{category.name}</span>
+            <Link href={`/category/${category.slug}`}>{category.name}</Link>
+            <span className={styles.separator}>/</span>
+            <span className={styles.current}>{subslug.replace(/-/g, ' ')}</span>
           </nav>
-          <h1 className={styles.title}>{category.name}</h1>
-          {category.description && <p className={styles.desc}>{category.description}</p>}
+          <h1 className={styles.title} style={{ textTransform: 'capitalize' }}>
+            {subslug.replace(/-/g, ' ')}
+          </h1>
+          <p className={styles.desc}>
+            Exclusive {subslug.replace(/-/g, ' ')} arrangements from our {category.name} collection.
+          </p>
         </div>
       </header>
 
       <div className="container">
         {products.length === 0 ? (
           <div className={styles.empty}>
-            <p>We're currently preparing new arrangements for this collection. Please check back soon!</p>
+            <p>We're currently preparing new arrangements for this sub-collection. Please check back soon!</p>
           </div>
         ) : (
           <div className={styles.grid}>

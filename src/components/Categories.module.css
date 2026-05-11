@@ -19,7 +19,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   transition: all var(--transition-base);
   border: 1px solid rgba(255, 255, 255, 0.3);
   text-decoration: none;

@@ -64,7 +64,7 @@
   padding: 0.625rem 2.5rem 0.625rem 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--text-dark);
   background: var(--bg-soft);
   transition: all var(--transition-fast);
