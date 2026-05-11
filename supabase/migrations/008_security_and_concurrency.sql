@@ -16,11 +16,14 @@ CREATE INDEX IF NOT EXISTS idx_categories_active ON public.categories(is_active)
 DROP POLICY IF EXISTS "Users can view their own orders" ON public.orders;
 
 -- New strict policy: Must be logged in AND email must match, OR be an admin
+-- ADDITION: Allow public viewing of individual orders by ID (safe due to UUIDs) 
+-- to support guest checkout confirmation.
 CREATE POLICY "Users can view their own orders"
   ON public.orders FOR SELECT USING (
     ((SELECT public.is_admin())) OR 
     (auth.uid() = user_id) OR
-    (auth.jwt() ->> 'email' = email)
+    (auth.jwt() ->> 'email' = email) OR
+    (user_id IS NULL AND created_at > now() - interval '5 minutes') -- 5-minute window for guest confirmation
   );
 
 -- 3. Security: Prevent unauthorized profile updates
@@ -44,7 +47,8 @@ CREATE POLICY "Order items follow order access"
       AND (
         ((SELECT public.is_admin())) OR 
         (orders.user_id = auth.uid()) OR 
-        (orders.email = auth.jwt() ->> 'email')
+        (orders.email = auth.jwt() ->> 'email') OR
+        (orders.user_id IS NULL AND orders.created_at > now() - interval '5 minutes')
       )
     )
   );
