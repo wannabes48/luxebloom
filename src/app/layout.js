@@ -69,6 +69,9 @@ export const metadata = {
     description: 'Discover premium money bouquets, fresh flower arrangements, and luxury gifts for every occasion.',
     images: ['/bloomstacks-logo.png'],
   },
+  verification: {
+    google: 'yCWkx_g_st56DQ35eL4It-2tnZCBCN7bC-pB6aNyRgM',
+  },
   robots: {
     index: true,
     follow: true,
