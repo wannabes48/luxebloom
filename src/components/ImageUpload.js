@@ -3,7 +3,7 @@
 import { CldUploadWidget } from 'next-cloudinary';
 
 /**
- * Premium Image Upload Component for Luxe Bloom.
+ * Premium Image Upload Component for BloomStacks Gifts Co.
  * Allows admins to upload product images directly to Cloudinary.
  */
 export default function ImageUpload({ onUploadSuccess }) {

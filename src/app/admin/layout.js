@@ -59,7 +59,7 @@ export default function AdminLayout({ children }) {
       {/* Sidebar */}
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          <Link href="/" className={styles.adminBrand}>Luxe Bloom</Link>
+          <Link href="/" className={styles.adminBrand}>BloomStacks Gifts Co.</Link>
           <span className={styles.adminTag}>Internal Portal</span>
         </div>
 

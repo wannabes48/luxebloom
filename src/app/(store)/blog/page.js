@@ -51,7 +51,7 @@ export default function BlogPage() {
           <div className={styles.featuredContent}>
             <span className={styles.category}>Featured</span>
             <h2>Sustainable Luxury: Our Commitment to the Planet</h2>
-            <p>How Luxe Bloom is partnering with eco-friendly farms to bring you beautiful arrangements without the environmental footprint.</p>
+            <p>How BloomStacks Gifts Co. is partnering with eco-friendly farms to bring you beautiful arrangements without the environmental footprint.</p>
             <button className="btn btn-outline">Read More</button>
           </div>
         </div>

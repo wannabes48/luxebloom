@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import styles from "./Header.module.css";
@@ -15,12 +16,15 @@ export default function Header() {
     <header className={styles.header} id="header">
       <div className={`container ${styles.inner}`}>
         {/* Logo */}
-        <Link href="/" className={styles.logo}>
-          <span className={styles.logoIcon}>✿</span>
-          <div className={styles.logoText}>
-            <span className={styles.brand}>Luxe Bloom</span>
-            <span className={styles.tagline}>Premium Money Bouquets & Flowers</span>
-          </div>
+        <Link href="/" className={styles.logo} aria-label="BloomStacks Gifts Co. — Go to homepage">
+          <Image
+            src="/bloomstacks-logo.png"
+            alt="BloomStacks Gifts Co. — Premium Money Bouquets and Gifts"
+            width={240}
+            height={120}
+            className={styles.logoImg}
+            priority
+          />
         </Link>
 
         {/* Search */}

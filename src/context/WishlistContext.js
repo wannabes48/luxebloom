@@ -10,14 +10,14 @@ export function WishlistProvider({ children }) {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("luxebloom_wishlist");
+      const saved = localStorage.getItem("bloomstacks_wishlist");
       if (saved) setWishlistItems(JSON.parse(saved));
     } catch {}
   }, []);
 
   // Save to localStorage on change
   useEffect(() => {
-    localStorage.setItem("luxebloom_wishlist", JSON.stringify(wishlistItems));
+    localStorage.setItem("bloomstacks_wishlist", JSON.stringify(wishlistItems));
   }, [wishlistItems]);
 
   const toggleWishlist = useCallback((product) => {

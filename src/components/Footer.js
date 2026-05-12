@@ -37,11 +37,10 @@ export default function Footer() {
             {/* Brand */}
             <div className={styles.col}>
               <div className={styles.brand}>
-                <span className={styles.brandIcon}>✿</span>
-                <span className={styles.brandName}>Luxe Bloom</span>
+                <img src="/bloomstacks-logo.png" alt="BloomStacks Gifts Co. logo" className={styles.brandLogo} />
               </div>
               <p className={styles.brandDesc}>
-                America's premier destination for luxury money bouquets and fresh flower arrangements.
+                America's premier destination for luxury money bouquets, fresh flower arrangements, and premium gifts.
                 Handcrafted with love, delivered nationwide.
               </p>
               <div className={styles.socials}>
@@ -99,7 +98,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  <a href="mailto:hello@luxebloom.com">hello@luxebloom.com</a>
+                  <a href="mailto:hello@bloomstacksgifts.com">hello@bloomstacksgifts.com</a>
                 </li>
               </ul>
 
@@ -123,7 +122,7 @@ export default function Footer() {
         <div className="container">
           <div className={styles.bottomInner}>
             <p className={styles.copyright}>
-              © {new Date().getFullYear()} Luxe Bloom. All rights reserved.
+              © {new Date().getFullYear()} BloomStacks Gifts Co. All rights reserved.
             </p>
             <div className={styles.policies}>
               <Link href="/privacy-policy">Privacy Policy</Link>

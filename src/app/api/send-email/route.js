@@ -11,9 +11,9 @@ export async function POST(request) {
     // Check if this is an order confirmation or an inquiry
     if (type === 'order') {
       const { data, error } = await resend.emails.send({
-        from: 'Luxe Bloom <onboarding@resend.dev>', 
+        from: 'BloomStacks Gifts Co. <onboarding@resend.dev>', 
         to: [email],
-        subject: `Order Confirmation #LB-${orderId.slice(-6).toUpperCase()} - Luxe Bloom`,
+        subject: `Order Confirmation #LB-${orderId.slice(-6).toUpperCase()} - BloomStacks Gifts Co.`,
         react: OrderReceipt({ customerName, orderId: orderId.slice(-6).toUpperCase(), total }),
       });
 
@@ -28,8 +28,8 @@ export async function POST(request) {
     // Handle Contact Form Inquiries
     if (type === 'inquiry') {
       const { data, error } = await resend.emails.send({
-        from: 'Luxe Bloom <onboarding@resend.dev>',
-        to: ['support@luxebloom.com'], // This goes to YOUR inbox
+        from: 'BloomStacks Gifts Co. <onboarding@resend.dev>',
+        to: ['support@bloomstacksgifts.com'], // This goes to YOUR inbox
         subject: `New Inquiry from ${customerName}`,
         text: `You have a new message from ${customerName || 'Chat User'} (${email}):\n\n${message}`,
       });

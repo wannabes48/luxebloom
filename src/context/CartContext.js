@@ -11,7 +11,7 @@ export function CartProvider({ children }) {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("luxebloom_cart");
+      const saved = localStorage.getItem("bloomstacks_cart");
       if (saved) {
         const parsed = JSON.parse(saved);
         // Re-normalize items to fix legacy data
@@ -27,7 +27,7 @@ export function CartProvider({ children }) {
 
   // Save to localStorage on change
   useEffect(() => {
-    localStorage.setItem("luxebloom_cart", JSON.stringify(items));
+    localStorage.setItem("bloomstacks_cart", JSON.stringify(items));
   }, [items]);
 
   const addItem = useCallback((product) => {

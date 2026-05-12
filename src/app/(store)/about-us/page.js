@@ -16,9 +16,9 @@ export default function AboutUsPage() {
         <div className="container">
           <div className={styles.grid}>
             <div className={styles.textSide}>
-              <h2>The Luxe Bloom Vision</h2>
+              <h2>The BloomStacks Vision</h2>
               <p>
-                Founded in the heart of New York, Luxe Bloom was born out of a desire to redefine the art of gifting. 
+                Founded in the heart of New York, BloomStacks Gifts Co. was born out of a desire to redefine the art of gifting. 
                 We believe that every celebration deserves a touch of extraordinary elegance. 
                 Whether it's a milestone graduation, a diamond anniversary, or a simple "thinking of you," 
                 our arrangements are designed to speak volumes.

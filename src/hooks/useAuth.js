@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 
 /**
- * Real useAuth hook for Luxe Bloom.
+ * Real useAuth hook for BloomStacks Gifts Co.
  * Connects the UI to Supabase authentication.
  */
 export function useAuth() {

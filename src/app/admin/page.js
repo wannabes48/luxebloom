@@ -74,7 +74,7 @@ export default function AdminDashboard() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `LuxeBloom_Report_${new Date().toLocaleDateString()}.csv`;
+    a.download = `BloomStacks_Report_${new Date().toLocaleDateString()}.csv`;
     a.click();
   };
 

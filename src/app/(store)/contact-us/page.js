@@ -29,8 +29,8 @@ export default function ContactUsPage() {
 
             <div className={styles.infoCard}>
               <h3>Email Inquiries</h3>
-              <p><a href="mailto:hello@luxebloom.com">hello@luxebloom.com</a></p>
-              <p>For custom orders: <a href="mailto:bespoke@luxebloom.com">bespoke@luxebloom.com</a></p>
+              <p><a href="mailto:hello@bloomstacksgifts.com">hello@bloomstacksgifts.com</a></p>
+              <p>For custom orders: <a href="mailto:bespoke@bloomstacksgifts.com">bespoke@bloomstacksgifts.com</a></p>
             </div>
           </div>
 

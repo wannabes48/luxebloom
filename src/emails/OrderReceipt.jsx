@@ -12,16 +12,16 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-// A premium, minimalist email design matching Luxe Bloom
+// A premium, minimalist email design matching BloomStacks Gifts Co.
 export default function OrderReceipt({ customerName, orderId, total }) {
   return (
     <Html>
       <Head />
-      <Preview>Your Luxe Bloom Order Confirmation</Preview>
+      <Preview>Your BloomStacks Gifts Co. Order Confirmation</Preview>
       <Body style={{ backgroundColor: '#FFFDF7', fontFamily: 'Inter, sans-serif' }}>
         <Container style={{ margin: '0 auto', padding: '40px 20px', maxWidth: '600px' }}>
           <Heading style={{ color: '#0A5C36', fontSize: '24px', fontWeight: 'bold' }}>
-            Luxe Bloom
+            BloomStacks Gifts Co.
           </Heading>
           
           <Text style={{ fontSize: '16px', color: '#1A1A1A', marginTop: '24px' }}>
@@ -45,12 +45,12 @@ export default function OrderReceipt({ customerName, orderId, total }) {
           </Section>
 
           <Text style={{ marginTop: '40px', fontSize: '14px', color: '#6B6B6B', textAlign: 'center' }}>
-            If you have any questions, reply to this email or contact us at support@luxebloom.com.
+            If you have any questions, reply to this email or contact us at support@bloomstacksgifts.com.
           </Text>
           
           <Section style={{ textAlign: 'center', marginTop: '24px' }}>
             <Text style={{ fontSize: '12px', color: '#9CA3AF' }}>
-              © 2024 Luxe Bloom. All rights reserved.
+              © 2026 BloomStacks Gifts Co.. All rights reserved.
             </Text>
           </Section>
         </Container>

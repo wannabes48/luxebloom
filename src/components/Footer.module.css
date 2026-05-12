@@ -62,22 +62,13 @@
 
 /* Brand */
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.brandIcon {
-  font-size: 1.75rem;
-  color: var(--gold);
-}
-
-.brandName {
-  font-family: var(--font-heading);
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--white);
+.brandLogo {
+  height: 144px;
+  width: auto;
+  object-fit: contain;
 }
 
 .brandDesc {

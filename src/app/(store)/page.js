@@ -1,4 +1,4 @@
-// Home page for Luxe Bloom
+// Home page for BloomStacks Gifts Co.
 export const revalidate = 3600; // Revalidate every hour
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";

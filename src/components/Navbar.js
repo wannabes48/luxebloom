@@ -109,7 +109,7 @@ export default function Navbar() {
       {/* Mobile Sidebar */}
       <aside className={`${styles.sidebar} ${isMenuOpen ? styles.sidebarOpen : ""}`}>
         <div className={`${styles.sidebarHeader} font-montserrat`}>
-          <div className={styles.sidebarBrand}>Luxe Bloom</div>
+          <div className={styles.sidebarBrand}>BloomStacks Gifts Co.</div>
           <button className={styles.closeBtn} onClick={() => setIsMenuOpen(false)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
@@ -180,7 +180,7 @@ export default function Navbar() {
             <div className={styles.sectionLabel}>Support</div>
             <div className={styles.sidebarEmail}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              hello@luxebloom.com
+              hello@bloomstacksgifts.com
             </div>
           </section>
         </div>

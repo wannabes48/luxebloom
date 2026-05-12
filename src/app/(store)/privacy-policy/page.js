@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
           <div className={styles.content}>
             <section>
               <h2>1. Information We Collect</h2>
-              <p>At Luxe Bloom, we collect information that you provide directly to us when you create an account, make a purchase, or communicate with our team. This includes:</p>
+              <p>At BloomStacks Gifts Co., we collect information that you provide directly to us when you create an account, make a purchase, or communicate with our team. This includes:</p>
               <ul>
                 <li><strong>Contact Information:</strong> Name, email address, phone number, and mailing address.</li>
                 <li><strong>Payment Information:</strong> Credit card details and billing address (processed securely via our payment partners).</li>

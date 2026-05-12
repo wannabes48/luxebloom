@@ -1,0 +1,7 @@
+# BloomStacks Gifts Co. — Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://bloomstacksgifts.com/sitemap.xml
