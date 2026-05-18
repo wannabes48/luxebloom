@@ -7,10 +7,11 @@ import { useWishlist } from "@/context/WishlistContext";
 import styles from "./Header.module.css";
 import { useState } from "react";
 
+import SearchBar from './SearchBar';
+
 export default function Header() {
   const { totalItems, subtotal, openCart } = useCart();
   const { wishlistItems } = useWishlist();
-  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <header className={styles.header} id="header">
@@ -28,20 +29,7 @@ export default function Header() {
         </Link>
 
         {/* Search */}
-        <div className={styles.search}>
-          <input
-            type="text"
-            placeholder="Search money bouquets, flowers, gifts..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={styles.searchInput}
-            id="header-search"
-            aria-label="Search products"
-          />
-          <button className={styles.searchBtn} aria-label="Search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </button>
-        </div>
+        <SearchBar />
 
         {/* Actions */}
         <div className={styles.actions}>
